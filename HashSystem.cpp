@@ -153,6 +153,15 @@ namespace ns_BNCS {
 			}
 		}
 
+		void little_endian_sha1(t_hash *hashout, const void *datain, UINT32 size)
+		{
+			data_hash(hashout, datain, size, false);
+			for (int i = 0; i < 5; i++)
+			{
+				RENDIAN_DWORD((*hashout)[i]);
+			}
+		}
+
 		bool matchhash(t_hash *a, t_hash *b) {
 			if (((*a)[0] == (*b)[0]) && ((*a)[1] == (*b)[1]) && ((*a)[2] == (*b)[2]) && ((*a)[3] == (*b)[3]) && ((*a)[4] == (*b)[4])) {
 				return true;

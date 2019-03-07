@@ -6,6 +6,7 @@ namespace ns_BNCS {
 		void set_buffer(const void *input, const int len, UINT32 *buffer, bool broken_sha);
 		void digest_hash(t_hash *result, UINT32 *buffer, bool broken_sha);
 		void data_hash(t_hash *result, const void *src, const int len, bool broken_sha);
+		void little_endian_sha1(t_hash *hashout, const void *datain, UINT32 size);
 		bool matchhash(t_hash *a, t_hash *b);
 	}
 }
