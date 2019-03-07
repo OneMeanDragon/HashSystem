@@ -15,9 +15,29 @@ namespace ns_BNCS {
 			unsigned int g;
 			int i;
 
-			unsigned char bBuffer[320] = { 0 };
+			unsigned char bBuffer[320];
+			if (broken_sha) {
+				ZeroMemory(bBuffer, 320);
+			}
+			else {
+				ZeroMemory(bBuffer, (16 * 4));
+			}
+
 			memcpy(bBuffer, src, len);
-			unsigned int *lpdwBuffer = (unsigned int *)bBuffer;
+
+			if (!broken_sha) {
+				bBuffer[len] = 0x80U;
+				*(UINT32*)(bBuffer + (15 * 4)) = (UINT32)(len * 8);
+			}
+
+			UINT32 lpdwBuffer[80];
+			memcpy(lpdwBuffer, bBuffer, 320);
+			if (!broken_sha) {
+				for (int i = 0; i < 14; i++)
+				{
+					RENDIAN_DWORD(lpdwBuffer[i]);
+				}
+			}
 
 			for (i = 0; i < 80; ++i) {
 				if (i < 64)
