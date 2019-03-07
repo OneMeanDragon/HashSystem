@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\BigInt">
+      <UniqueIdentifier>{44338ee8-f2c5-48b3-8888-c72889034909}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SRP">
+      <UniqueIdentifier>{0665287a-6499-4336-8732-773e5e4004b3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -24,6 +30,12 @@
     <ClInclude Include="HashSystem.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="BigInt.h">
+      <Filter>Source Files\BigInt</Filter>
+    </ClInclude>
+    <ClInclude Include="srp.h">
+      <Filter>Source Files\SRP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -34,6 +46,12 @@
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BigInt.cpp">
+      <Filter>Source Files\BigInt</Filter>
+    </ClCompile>
+    <ClCompile Include="srp.cpp">
+      <Filter>Source Files\SRP</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
