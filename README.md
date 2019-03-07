@@ -11,4 +11,6 @@
 typedef UINT32	t_hash[5];
 
 #include "libs/HashSystem.h"
+#include "libs/BigInt.h"
+#include "libs/srp.h"
 ```
