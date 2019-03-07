@@ -14,6 +14,7 @@ namespace ns_BNCS {
 			(*result)[3] = 0x10325476u;
 			(*result)[4] = 0xc3d2e1f0u;
 		}
+
 		void set_buffer(const void *input, const int len, UINT32 *buffer, bool broken_sha)
 		{
 			UCHAR tmpBuffer[320];
@@ -137,7 +138,7 @@ namespace ns_BNCS {
 						digest_hash(result, SHABuffer, false);
 
 						// now use blizz variant as we only wanna fill in zeros
-						set_buffer(data, 0, SHABuffer, true); //set true gheyboi side
+						set_buffer(data, 0, SHABuffer, true);
 						SHABuffer[15] |= (UINT32)(len * 8);
 						digest_hash(result, SHABuffer, false);
 					}
@@ -151,6 +152,7 @@ namespace ns_BNCS {
 				}
 			}
 		}
+
 		bool matchhash(t_hash *a, t_hash *b) {
 			if (((*a)[0] == (*b)[0]) && ((*a)[1] == (*b)[1]) && ((*a)[2] == (*b)[2]) && ((*a)[3] == (*b)[3]) && ((*a)[4] == (*b)[4])) {
 				return true;
