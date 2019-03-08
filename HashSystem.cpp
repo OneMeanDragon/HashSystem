@@ -77,19 +77,19 @@ namespace ns_BNCS {
 			for (i = 0; i < 80; ++i) {
 				if (i < 64)
 					if (broken_sha) {
-						buffer[i + 16] = ROL(1, F4(buffer[i], buffer[i + 8], buffer[i + 2], buffer[i + 13]) % 32);
+						buffer[i + 16] = ROL(1, F4(buffer[i], buffer[i + 8], buffer[i + 2], buffer[i + 13]));
 					}
 					else {
-						buffer[i + 16] = ROL(F4(buffer[i], buffer[i + 8], buffer[i + 2], buffer[i + 13]) % 32, 1);
+						buffer[i + 16] = ROL(F4(buffer[i], buffer[i + 8], buffer[i + 2], buffer[i + 13]), 1);
 					}
 				if (i < 20)
-					g = buffer[i] + ROL(a, 5) + e + F1(b, c, d) + 0x5a827999lu;
+					g = buffer[i] + ROL(a, 5) + e + F1(b, c, d) + 0x5a827999;
 				else if (i < 40)
-					g = F2(d, c, b) + e + ROL(g, 5) + buffer[i] + 0x6ed9eba1lu;
+					g = F2(d, c, b) + e + ROL(g, 5) + buffer[i] + 0x6ed9eba1;
 				else if (i < 60)
-					g = buffer[i] + ROL(g, 5) + e + F3(c, b, d) - 0x70e44324lu;
+					g = buffer[i] + ROL(g, 5) + e + F3(c, b, d) - 0x70e44324;
 				else
-					g = F2(d, c, b) + e + ROL(g, 5) + buffer[i] - 0x359d3e2alu;
+					g = F2(d, c, b) + e + ROL(g, 5) + buffer[i] - 0x359d3e2a;
 				e = d;
 				d = c;
 				c = ROL(b, 30);
